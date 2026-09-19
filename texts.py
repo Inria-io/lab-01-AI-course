@@ -69,9 +69,70 @@ SYSTEM_PROMPT: Dict[str, str] = {
     ),
 }
 
+#: Task 1 -- a regulatory notice, another realistic production text.
+NOTICE: Dict[str, str] = {
+    "en": (
+        "The National Bank has updated its base rate effective the first of "
+        "next month. Existing fixed-rate agreements signed before this date "
+        "are not affected by the change."
+    ),
+    "ru": (
+        "Национальный банк обновил базовую ставку с первого числа следующего "
+        "месяца. Действующие договоры с фиксированной ставкой, подписанные до "
+        "этой даты, изменение не затрагивает."
+    ),
+    "kk": (
+        "Ұлттық банк келесі айдың бірінен бастап негізгі мөлшерлемені "
+        "жаңартты. Осы күнге дейін қол қойылған тұрақты мөлшерлемелі "
+        "келісімшарттарға бұл өзгеріс әсер етпейді."
+    ),
+}
+
+#: Task 3 -- same complaint, expressed as structured JSON data (full content preserved).
+COMPLAINT_JSON: Dict[str, str] = {
+    "en": (
+        '{"greeting": "Good afternoon.", "opened": "I opened a deposit at your '
+        'branch in March and was told the rate was fixed for twelve months.", '
+        '"issue": "In August the rate on my account dropped without any '
+        'notice.", "attachments": "I have attached the contract and the '
+        'statement.", "request": "Please explain on what basis the rate was '
+        'changed and restore the original terms."}'
+    ),
+    "ru": (
+        '{"приветствие": "Добрый день.", "депозит": "Я открыл депозит в вашем '
+        'отделении в марте, и мне сказали, что ставка зафиксирована на '
+        'двенадцать месяцев.", "проблема": "В августе ставка по моему счёту '
+        'снизилась без какого-либо уведомления.", "вложения": "Прилагаю '
+        'договор и выписку.", "запрос": "Прошу объяснить, на каком основании '
+        'была изменена ставка, и восстановить первоначальные условия."}'
+    ),
+    "kk": (
+        '{"сәлемдесу": "Қайырлы күн.", "депозит": "Мен наурыз айында сіздің '
+        'бөлімшеңізде депозит аштым, маған мөлшерлеме он екі айға бекітілген '
+        'деп айтылды.", "мәселе": "Тамыз айында менің шотымдағы мөлшерлеме '
+        'ешқандай хабарламасыз төмендеді.", "тіркеме": "Шартты және үзінді '
+        'көшірмені қоса тіркеп отырмын.", "сұраныс": "Мөлшерлеме қандай '
+        'негізде өзгертілгенін түсіндіріп, бастапқы шарттарды қалпына '
+        'келтіруіңізді сұраймын."}'
+    ),
+}
+
+#: Task 2 -- two similar-length Kazakh sentences with different letter
+#: inventories. Not part of CORPUS (single-language only); measured
+#: separately with a small standalone script.
+KK_SHARED_LETTERS: Dict[str, str] = {
+    "kk": "Банк маған хабарлама жіберді, мен оны оқыдым."
+}
+
+KK_SPECIAL_LETTERS: Dict[str, str] = {
+    "kk": "Әкем құжаттарды дайындап, өтінішін тапсырды, ол қуанышты еді."
+}
+
 #: Everything the lab measures, keyed by a short id.
 CORPUS: Dict[str, Dict[str, str]] = {
     "sentence": SENTENCE,
     "complaint": COMPLAINT,
     "system_prompt": SYSTEM_PROMPT,
+    "notice": NOTICE,
+    "complaint_json": COMPLAINT_JSON,
 }
